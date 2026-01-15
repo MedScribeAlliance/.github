@@ -1,26 +1,3 @@
----
-layout: home
-
-hero:
-  name: "OMSIF"
-  text: "Open Medical Scribe Integration Framework"
-  tagline: A vendor-agnostic standard for integrating AI-driven Medical Scribes with EMRs in India.
-  actions:
-    - theme: brand
-      text: Strategies Objectives
-      link: /#strategic-objectives
-    - theme: alt
-      text: View on GitHub
-      link: https://github.com/ScribeSetu/framework
-
-features:
-  - title: Vendor Agnostic
-    details: Eliminate custom point-to-point contracts. A "write once, deploy everywhere" approach.
-  - title: Discrete Data
-    details: Prioritize extraction of structured entities (Medications, Vitals) for high-value downstream tasks.
-  - title: Standardized Protocol
-    details: A deterministic "handshake" and payload definition using FHIR profiles.
----
 
 # Mission Statement
 
