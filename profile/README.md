@@ -1,4 +1,3 @@
-
 # Mission Statement
 
 **To establish a vendor-agnostic, interoperable standard for integrating AI-driven Medical Scribes with Electronic Medical Records (EMR) systems in India.** By standardizing the "handshake" and data payload, we aim to accelerate innovation, reduce integration friction, and treat clinical data connectivity as a Digital Public Good (DPG).
@@ -22,7 +21,7 @@ To ensure feasibility and immediate impact, this framework operates under the fo
 While scribes generate narrative text, the highest value for downstream tasks (Clinical Decision Support, Analytics, Research) lies in structured, discrete entities (e.g., Medications, Vitals, Diagnosis). This framework prioritizes the extraction and standardization of these entities.
 
 ### Feasibility of Standardization
-We assume that core medical concepts can be mapped to standard ontologies (SNOMED CT, LOINC, RxNorm) and structural formats without loss of critical clinical context.
+We assume that core medical concepts can be mapped to standard ontologies (SNOMED CT, LOINC, ICD10/11, NRCES drug codes) and structural formats without loss of critical clinical context.
 
 ### Pareto Principle
 Solving for discrete scribe output addresses the vast majority of high-value EMR use cases, including automated order generation and longitudinal health studies.
