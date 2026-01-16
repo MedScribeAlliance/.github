@@ -9,7 +9,7 @@
 The primary goal is to decouple the intelligence layer (Scribe) from the system of record (EMR), ensuring seamless data fluidity.
 
 - **Standardized Interoperability**: Eliminate the need for custom, point-to-point contracts between every scribe vendor and EMR provider. A "write once, deploy everywhere" approach.
-- **Vendor Agnosticism & No Lock-in**: Empower healthcare facilities to switch scribe vendors based on performance and cost without incurring prohibitive switching costs or technical debt.
+- **Vendor Agnosticism & No Lock-in**: Empower healthcare facilities and scribe vendors to integrate easily without worrying about prohibitive switching costs or technical debt.
 - **Reusability**: Ensure that the effort spent mapping scribe outputs to clinical formats is a one-time investment, reusable across different EMR implementations.
 - **Predictable Evaluation**: Create a deterministic output standard that allows for the rigorous, apples-to-apples evaluation of different medical scribe platforms.
 
