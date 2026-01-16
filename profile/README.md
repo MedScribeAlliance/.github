@@ -33,7 +33,7 @@ The framework is composed of three distinct layers designed to handle the transp
 ### A. The Data Exchange Protocol (The "Handshake")
 A high-level specification akin to the Model Context Protocol (MCP) or LSP, defining how systems discover and talk to each other.
 
-- **Capability Discovery**: A standard mechanism for the EMR to query the Scribe: "What modalities do you support?" (e.g., Audio, Text, Dicom) and "What capabilities do you offer?" (e.g., Real-time streaming vs. Batch processing).
+- **Capability Discovery**: A standard mechanism for the EMR to query the Scribe: "What templates do you offer?" Basis the response, the EMR can select a template to be used during the structuring phase.
 - **Multi-Modal Transport**:
     - **Bi-Directional Flow**: Support for pushing context to the scribe (e.g., "Patient is male, 40yo") and pulling results.
 - **Interaction Models**:
@@ -46,10 +46,9 @@ A strict "Profile" of the HL7 FHIR standard to ensure deterministic data exchang
 
 - **The "Problem of Plenty" Solution**: FHIR is flexible; this framework effectively "constrains" FHIR to remove ambiguity. We will define strict Implementation Guides (IGs).
 - **Mandatory vs. Optional**: Explicit definitions of required fields to prevent "data sparseness."
-- **Semantic Objectification**:
+- **Semantic Objectification (Examples)**:
     - **Medication**: A defined subset of the MedicationRequest resource that captures dosage, frequency, and route uniquely, minimizing subjective interpretation.
     - **Observations**: Strict mapping rules (e.g., "Symptom" $\rightarrow$ Observation resource; "Medical History" $\rightarrow$ Condition resource with category='problem-list').
-- **Ontology Binding**: Enforcing specific value sets (e.g., requiring SNOMED CT codes for specific Condition resources).
 
 ### C. The Integration Adapter (The "Bridge")
 A translation layer ensuring the Scribe's standard output matches the EMR's specific input.
@@ -61,16 +60,21 @@ A translation layer ensuring the Scribe's standard output matches the EMR's spec
 
 To accelerate adoption, the consortium will develop and maintain the following assets:
 
-### 1. The Open FHIR SDK
+### 1. SCRIBE-EMR-PROTOCOL (SEP)
+- **Description**: An open standard defining the handshake, authentication, and data exchange between EMRs and AI Scribes.
+- **Function**: Eliminates custom integrations by standardizing how EMRs discover capabilities and submit audio for transcription.
+- **Example**: POST /initialize $\rightarrow$ negotiates supported templates and protocol version.
+
+### 2. The Open SCRIBE2FHIR SDK
 - **Description**: A multi-language SDK (Python, TypeScript/Node, Go, Java) designed for scribe vendors.
 - **Function**: Abstract complexity by providing simple methods to generate compliant FHIR resources from raw model outputs.
 - **Example**: `sdk.create_symptom("Fever", duration="2 days")` $\rightarrow$ returns validated FHIR JSON.
 
-### 2. Public Adapter Library (DPGs)
+### 3. Public Adapter Library (DPGs)
 - **Vision**: Adapters for major/common facility standards will be released as Digital Public Goods (DPGs).
 - **Impact**: If a facility uses a common schema, the adapter is free and open-source, lowering the barrier to entry for smaller clinics and hospitals.
 
-### 3. Canonical Documentation
+### 4. Canonical Documentation
 - **Artifacts**: A central documentation hub (GitHub Pages) containing:
     - The API Specification (OpenAPI/Swagger).
     - The FHIR Implementation Guide (IG).
